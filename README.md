@@ -34,7 +34,7 @@ Copy the contents of the [`src/`](https://github.com/aallan/pico-lorawan-circuit
 
 We're sending out temperature reading as a byte array
 
-```
+```C
 temp = microcontroller.cpu.temperature
 temp = int(temp * 100)
 
@@ -45,7 +45,7 @@ data[1] = temp & 0xFF
 
 By default the payload is displayed as a hexidecimal values in the Network Console. However we can add a 
 
-```
+```javascript
 function Decoder(bytes, port) {
   var decoded = {};
 
