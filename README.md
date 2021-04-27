@@ -65,6 +65,8 @@ You can find more information at
 
 ## Bill of Materials
 
+The following hardware is needed:
+
 Item | Link 
 ------------ | -------------
 Raspberry Pi Pico | https://www.raspberrypi.org/products/raspberry-pi-pico/
@@ -72,8 +74,11 @@ Adafruit FRM95x Lora Radio | https://www.adafruit.com/product/3072
 Edge-Mount SMA Connector | https://www.adafruit.com/product/1865
 868MHz or 915MHz Antenna | https://www.adafruit.com/product/3340
 Male-Female Jumper Wires | https://www.adafruit.com/product/1953
+Breadboard | https://www.adafruit.com/product/64
 
 ## Libraries
+
+The following libraries are used:
 
 Library | License | Github
 ------------ | ------------- | -------------
