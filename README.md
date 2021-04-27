@@ -1,9 +1,13 @@
 # Raspberry Pi Pico and LoRaWAN from CircuitPython
 
-Enable LoRaWAN communications on your [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) or any RP2040-based board using [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/) and the Adafruit [TinyLoRa](https://github.com/adafruit/TinyLoRa) library. 
+Enable LoRaWAN communications on your [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) or any RP2040-based board using [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/) and the Adafruit [TinyLoRa](https://github.com/adafruit/Adafruit_CircuitPython_TinyLoRa) library. 
 
+
+## Wiring the RFM9x Radio Module
 
 ![Wiring diagram](/images/pico-and-rfm9x.png)
+
+The mapping between the pins on the breakout board and your Pico should be as follows:
 
 Pico | RP2040 | SX1276 Module | RFM95W Breakout
 ------------ | ------------- | ------------ | -------------
@@ -20,18 +24,18 @@ Pin 25 | GP19 (SPI0 TX) | MOSI | MOSI
 ## Setting up The Things Network
 
 
-## Adding Keys
+## Adding keys to the code
 
 
-## Deploying to Pico
+## Deploying to your Pico
 
-Copy the contents of the [`src/`](https://github.com/aallan/pico-lorawan-circuitpython/tree/main/src) directory to your `CIRCUITPY` drive.
+Copy the contents of the [`src/`](https://github.com/aallan/pico-lorawan-circuitpython/tree/main/src) directory in the repo to your `CIRCUITPY` drive. This includes the `code.py` file and the `lib/` folder and all of its contents, including subfolders and any `.mpy` files present in the library directory.
 
-* the code.py file
-* the `lib/` folder and all of its contents (including subfolders and `.mpy` files)
+## Sending data
 
 
-## Decoder
+
+## Adding a decoder
 
 We're sending out temperature reading as a byte array
 
@@ -49,15 +53,15 @@ By default the payload is displayed as a hexidecimal values in the Network Conso
 ```javascript
 function Decoder(bytes, port) {
   var decoded = {};
-
-  // Decode bytes to int
   var celciusInt = (bytes[0] << 8) | bytes[1];
-  
-  // Decode int to float
   decoded.temp = celciusInt / 100;
 
   return decoded;
 ```
+
+## More information
+
+You can find more information at
 
 ## Bill of Materials
 
@@ -69,14 +73,21 @@ Edge-Mount SMA Connector | https://www.adafruit.com/product/1865
 868MHz or 915MHz Antenna | https://www.adafruit.com/product/3340
 Male-Female Jumper Wires | https://www.adafruit.com/product/1953
 
+## Libraries
+
+Library | License | Github
+------------ | ------------- | -------------
+Bus Device | MIT | https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+RFM95x | MIT | https://github.com/adafruit/Adafruit_CircuitPython_RFM9x
+TinyLoRa | LGPL | https://github.com/aallan/pico-lorawan-circuitpython
+
 ## License
 
 This software is released under the [MIT License](https://opensource.org/licenses/MIT).
-
-Copyright 2021, Alasdair Allan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
