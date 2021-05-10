@@ -1,13 +1,25 @@
 # Raspberry Pi Pico and LoRaWAN from CircuitPython
 
-Enable LoRaWAN communications on your [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) or any RP2040-based board using [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/) and the Adafruit [TinyLoRa](https://github.com/adafruit/Adafruit_CircuitPython_TinyLoRa) library. 
+Enable LoRaWAN communications on your [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) or any RP2040-based board using [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/) and the Adafruit [TinyLoRa](https://github.com/adafruit/Adafruit_CircuitPython_TinyLoRa) library. Based on the TinyLoRa [example code](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#the-code-3010429-2) by Adafruit.
 
+## Bill of Materials
+
+The following hardware is needed:
+
+Item | Link 
+------------ | -------------
+Raspberry Pi Pico | https://www.raspberrypi.org/products/raspberry-pi-pico/
+Adafruit RFM95x Lora Radio | https://www.adafruit.com/product/3072
+Edge-Mount SMA Connector | https://www.adafruit.com/product/1865
+868MHz or 915MHz Antenna | https://www.adafruit.com/product/3340
+Male-Female Jumper Wires | https://www.adafruit.com/product/1953
+Breadboard | https://www.adafruit.com/product/64
 
 ## Wiring the RFM9x Radio Module
 
 ![Wiring diagram](/images/pico-and-rfm9x.png)
 
-The mapping between the pins on the breakout board and your Pico should be as follows:
+After [soldering](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/assembly#step-2433237) your RFM95x module and attaching [an antenna](https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-padio-breakouts/assembly#antenna-options-2433239-6) the mapping between the pins on the module breakout board and your Pico should be as follows:
 
 Pico | RP2040 | SX1276 Module | RFM95W Breakout
 ------------ | ------------- | ------------ | -------------
@@ -22,6 +34,8 @@ Pin 24 | GP 18 (SPI0 SCK) | SCK | SCK
 Pin 25 | GP19 (SPI0 TX) | MOSI | MOSI
 
 ## Setting up The Things Network
+
+
 
 
 ## Adding keys to the code
@@ -63,18 +77,7 @@ function Decoder(bytes, port) {
 
 You can find more information at
 
-## Bill of Materials
 
-The following hardware is needed:
-
-Item | Link 
------------- | -------------
-Raspberry Pi Pico | https://www.raspberrypi.org/products/raspberry-pi-pico/
-Adafruit FRM95x Lora Radio | https://www.adafruit.com/product/3072
-Edge-Mount SMA Connector | https://www.adafruit.com/product/1865
-868MHz or 915MHz Antenna | https://www.adafruit.com/product/3340
-Male-Female Jumper Wires | https://www.adafruit.com/product/1953
-Breadboard | https://www.adafruit.com/product/64
 
 ## Libraries
 
