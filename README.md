@@ -35,13 +35,19 @@ Pin 21 | GP16 (SPI0 RX) | MISO | MISO
 Pin 24 | GP 18 (SPI0 SCK) | SCK | SCK
 Pin 25 | GP19 (SPI0 TX) | MOSI | MOSI
 
-## Setting up The Things Network
+## The Things Network
 
+To make use of a LoraWAN-enabled Pico you’re going to need to be in range of a LoRa gateway. Fortunately there is [The Things Network](https://www.thethingsnetwork.org/), an open-source community LoRaWAN network that has [global coverage](https://www.thethingsnetwork.org/map). Depending on where you are located, it’s quite possible that you’re already in coverage. However, if you aren’t, then you needn’t worry too much, the days when the cost of a LoRaWAN base station was of the order of several thousand dollars are long gone. You can now pick up a LoRa gateway for [under $100](https://amzn.to/3tFwFMZ).
 
+While any LoRa device in range of your new gateway will have its packets received and sent upstream to The Things Network, the data packets will be dropped on the ground unless they have somewhere to go. In other words, The Things Network needs to know where to route the packets your gateway is receiving.
 
+### Setting up The Things Network
 
-## Adding keys to the code
+Adafruit has written up a [full walkthrough](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/tinylora-ttn-setup) on how to set up and application and register your device with The Things Network.
 
+### Adding your keys to the code
+
+You'll need to set three unique identifiers in the [`code.py`](https://github.com/aallan/pico-lorawan-circuitpython/blob/main/src/code.py) file; the Device Address, Network Session Key, and Application Session Key. These can be found [on the Device Overview page](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#setting-up-the-code-for-the-things-network-3010430-10).
 
 ## Deploying to your Pico
 
