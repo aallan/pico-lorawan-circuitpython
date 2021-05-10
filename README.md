@@ -1,5 +1,7 @@
 # Raspberry Pi Pico and LoRaWAN from CircuitPython
 
+![Hero image](/images/hero-image.jpg)
+
 Enable LoRaWAN communications on your [Raspberry Pi Pico](https://www.raspberrypi.org/products/raspberry-pi-pico/) or any RP2040-based board using [CircuitPython](https://circuitpython.org/board/raspberry_pi_pico/) and the Adafruit [TinyLoRa](https://github.com/adafruit/Adafruit_CircuitPython_TinyLoRa) library. Based on the TinyLoRa [example code](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#the-code-3010429-2) by Adafruit.
 
 ## Bill of Materials
