@@ -45,17 +45,19 @@ While any LoRa device in range of your new gateway will have its packets receive
 
 Adafruit has written up a [full walkthrough](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/tinylora-ttn-setup) on how to set up and application and register your device with The Things Network. You'll need to set three unique identifiers in the [`code.py`](https://github.com/aallan/pico-lorawan-circuitpython/blob/main/src/code.py) file; the Device Address, Network Session Key, and Application Session Key. These can be found [on the Device Overview page](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#setting-up-the-code-for-the-things-network-3010430-10).
 
+**NOTE:** The example code uses ABP rather than OTAA as the Activation Method.
+
 ## Deploying to your Pico
 
 Copy the contents of the [`src/`](https://github.com/aallan/pico-lorawan-circuitpython/tree/main/src) directory in the repo to your `CIRCUITPY` drive. This includes the `code.py` file and the `lib/` folder and all of its contents, including subfolders and any `.mpy` files present in the library directory.
 
 ## Sending data
 
-If you're running the code from 
+Restart the board. The code should start running immediately, there will be debug output available on the USB CDC Serial console. If you see "Packet Sent!" then the packets are being sent up to The Things Network via LoRaWAN and you should be able to see your data arriving in the Network Console.
 
 ## Adding a decoder
 
-We're sending out temperature reading as a byte array;
+We're sending out temperature reading as a byte array.
 
 ```C
 temp = microcontroller.cpu.temperature
@@ -66,7 +68,7 @@ data[0] = (temp >> 8) & 0xFF
 data[1] = temp & 0xFF
 ```
 
-By default the payload is displayed as a hexidecimal values in the Network Console. However we can [add a data decoder](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#decoding-the-payload-3010444-33).
+By default the payload is displayed as a hexidecimal values in the Network Console. However we can [add a data decoder](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/using-tinylora#decoding-the-payload-3010444-33);
 
 ```javascript
 function Decoder(bytes, port) {
@@ -77,13 +79,11 @@ function Decoder(bytes, port) {
   return decoded;
 ```
 
-This will auto-magically decode the raw payload and display the real value in The Things Network Console.
+this will auto-magically decode the raw payload and display the real value in The Things Network Console.
 
 ## More information
 
-You can find more information at
-
-
+You can find more information about [using LoRaWAN and The Things Network from CircuitPython](https://learn.adafruit.com/using-lorawan-and-the-things-network-with-circuitpython/overview) in the Adafruit RFM95x tutorial pages. Alternatively you may want to use the RFM95x module using C, in which case you should take a look at Sandeep Mistry's [`pico-lorawan`](https://github.com/sandeepmistry/pico-lorawan) library, and [getting started instructions](https://www.raspberrypi.org/blog/how-to-add-lorawan-to-raspberry-pi-pico/).
 
 ## Libraries
 
