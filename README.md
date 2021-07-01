@@ -32,7 +32,7 @@ Pin 11 | GP8 | NSS | CS
 Pin 12 | GP9 | RESET | RST
 Pin 14 | GP10 | DIO1 | G1
 Pin 21 | GP16 (SPI0 RX) | MISO | MISO
-Pin 24 | GP 18 (SPI0 SCK) | SCK | SCK
+Pin 24 | GP18 (SPI0 SCK) | SCK | SCK
 Pin 25 | GP19 (SPI0 TX) | MOSI | MOSI
 
 ## The Things Network
